@@ -1,0 +1,246 @@
+﻿@page "/"
+
+<PageTitle>James Ide</PageTitle>
+<body>
+    <div class="wrapper" id="wrapper" style = "padding:50px;">
+        <header>
+            <h2>James Ide</h2>
+            <hr>
+            <p class="about">
+                About Me
+            </p>
+            <p class="para-intro">
+                An information technology student <br> from Adelaide. I aim to
+                deepen my understanding
+                in
+                various areas of
+                software
+                and web development.
+            </p>
+            <!-- <a href = "https://www.google.com">Google!</a> -->
+            <ul id="">
+                <li><a href="Resume" target="_#">Information <strong>Resume</strong></a></li>
+                <li><a href="https://github.com/JamesIde" target="_#">Projects <strong>GitHub</strong></a></li>
+                <li id="toggle-archive">Interests <strong id="toggle-archive-strong">The Archive</strong></li>
+            </ul>
+            <img src="images/james-cropped-shortpixel.png" id="profile-picture">
+        </header>
+        <!-- End of header -->
+
+
+
+        <section id="archive-toggler" style="display: none;">
+            <h3>The Archive</h3>
+            <!-- <p class="text-muted" style="padding:0px">
+              Hiking, photography, camping. <br>
+            </p> -->
+            <div class="card mb-2">
+                <a href="walls-of-jerusalem.html" class="href" id="wcw-title">
+                    <img class="card-img-top " src="images/walls-of-j.jpg" alt="" style="object-fit: cover;">
+                </a>
+                <div class="card-body">
+                    <a href="wild-south-coast-way.html" class="text-center wcw-title" style="text-decoration:none;color: black;">
+                        <h3 id="archive-title">Walls of Jerusalem </h3>
+                    </a>
+                    <p class="text-muted text-center" id="archive-subtitle-intro">February 2022</p>
+                    <hr>
+                    <p class="card-text" id="card-text">
+
+                        As part of a six-day solo road trip across Tasmania, I hiked the wild and inspiring alpine Walls of
+                        Jerusalem
+                        linear trail over two nights
+                        in February 2022.
+                    </p>
+                    <p class="text-muted text-right" id="archive-subtitle-intro-date">
+                        Archived: February 10, 2022
+                    </p>
+                </div>
+            </div>
+            <div class="card mb-2">
+                <a href="wild-south-coast-way.html" class="href" id="wcw-title">
+                    <img class="card-img-top " src="images/wcw.jpg" alt="" style="object-fit: cover;">
+                </a>
+                <div class="card-body">
+                    <a href="wild-south-coast-way.html" class="text-center wcw-title" style="text-decoration:none;color: black;">
+                        <h3 id="archive-title">The Wild South Coast Way</h3>
+                    </a>
+                    <p class="text-muted text-center" id="archive-subtitle-intro">November 2021</p>
+                    <hr>
+                    <p class="card-text" id="card-text">
+                        In November 2021, I solo hiked 45 kilometers along The Wild South Coast Way,
+                        following the Fleurieu Peninsula through Deep Creek and New Headland Conservation Park.
+                    </p>
+                    <p class="text-muted text-right" id="archive-subtitle-intro-date">
+                        Archived: December 5, 2021
+                    </p>
+                </div>
+            </div>
+            <p id="small-intro" class="mt-1"><em>Toggle button to go back</em></p>
+        </section>
+        <section id="section-toggler">
+            <h3>Education</h3>
+
+            <p class="para-intro">
+                Bachelor of Information Technology, Networks and
+                Cybersecurity
+                Systems Flinders University, Bedford Park<br>GPA: 6.38/7
+            </p>
+
+            <h3>Projects</h3>
+            <section id="projects">
+                <div class="container">
+                    <div class="projects-header-div">
+                        <div class="intro-header-project">
+                        </div>
+                        <div class="row">
+                            <div>
+                                <!-- <div class="card mb-3 mt-2">
+                                  <img class="card-img-top" src="images/etickets.PNG" alt="">
+                                  <div class="card-body">
+                                    <h4 class="card-title">eTickets</h4>
+                                    <ul class="tags text-white">
+                                      <li><a class="tag">ASP.NET MVC</a></li>
+                                      <li><a class="tag">ASP.NET Core</a></li>
+                                      <li><a class="tag">.NET 5 API</a></li>
+                                    </ul>
+                                    <hr>
+                                    <p class="card-text">
+                                      A movie booking system created with ASP.NET MVC using Entity Framework with SQL database for data
+                                      access. RESTful services such as dependency injection and generic base repositories were used to
+                                      develop the application.
+
+                                    </p>
+                                    <a class="btn btn-outline-primary btn-primary mr-auto mt-1"
+                                      href="https://etickets-aspnet-mvc-server.azurewebsites.net/" target="_blank">Live</a>
+                                    <a class="btn btn-outline-primary btn-primary mr-auto mt-1"
+                                      href="https://github.com/JamesIde/eTickets-ASP.NET-MVC-Ecom-App" target="_blank">GitHub</a>
+                                  </div>
+                                </div> -->
+                                <div class="card mb-3 mt-2">
+                                    <img class="card-img-top" src="images/hiddenvilla.PNG" alt="">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Hidden Villa</h4>
+                                        <ul class="tags text-white">
+                                            <li><a class="tag">Blazor WASM/Server</a></li>
+                                            <li><a class="tag">ASP.NET</a></li>
+                                            <li><a class="tag">.NET 5 API</a></li>
+                                            <li><a class="tag">C#</a></li>
+                                        </ul>
+                                        <hr>
+                                        <p class="card-text">
+                                            A resort booking system using Blazor Server, Blazor WASM with a .NET API.
+                                            EF Core (DBContext), Migrations, DTO and SQL server used for
+                                            data access with repository and dependency injection design patterns.
+
+                                        </p>
+                                        <a class="btn btn-outline-primary btn-primary mr-auto mt-1"
+                                           href="https://knotleni.sirv.com/Hidden%20Villa%20Demonstration%20Part%201.gif"
+                                           target="_blank">Demo 1</a>
+                                        <a class="btn btn-outline-primary btn-primary mr-auto mt-1"
+                                           href="https://knotleni.sirv.com/Hidden%20Villa%20Demonstration%20Part%202.gif"
+                                           target="_blank">Demo 2</a>
+                                        <a class="btn btn-outline-primary btn-primary mt-1" href="https://github.com/JamesIde/HiddenVilla"
+                                           target="_blank">Github</a>
+                                        <a class="btn btn-outline-primary btn-primary mr-auto  disabled mt-1"
+                                           href="https://github.com/JamesIde/HiddenVilla" target="_blank">
+                                            Azure deployment
+                                            coming soon
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="images/youtube-trender.PNG" alt="">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Youtube Trender</h4>
+                                        <ul class="tags text-white">
+                                            <li><a class="tag">Java</a></li>
+                                        </ul>
+                                        <hr>
+                                        <p class="card-text">
+                                            Interactive Java application that parses JSON metadata about trending videos.
+                                            Searches, sorts and indexes indexes the data for trending words using maps, lists
+                                            and
+                                            comparators.
+                                        </p>
+                                        <a class="btn btn-outline-primary btn-primary mr-auto mt-auto"
+                                           href="https://github.com/JamesIde/youtube_trender" target="_blank">Github</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="images/danbrews.png" alt="">
+                                    <div class="card-body">
+                                        <h4 class="card-title ">Dan An-Brews</h4>
+                                        <ul class="tags text-white">
+                                            <li><a class="tag">PHP</a></li>
+                                            <li><a class="tag">SQL</a></li>
+                                            <li><a class="tag">HTML</a></li>
+                                            <li><a class="tag">CSS</a></li>
+                                        </ul>
+                                        <hr>
+                                        <p class="card-text">
+                                            E-commerce website focussing on HTML and CSS for front-end with PHP
+                                            and
+                                            SQL
+                                            for back-end functionalities. The project focusses on data sanitisation and
+                                            validation
+                                            using
+                                            relevant PHP functions.
+                                        </p>
+                                        <a class="btn btn-outline-primary btn-primary  mr-auto mt-auto "
+                                           href="https://github.com/JamesIde/dan_anbrews" target="_blank">Github</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="images/lux.PNG" alt="">
+                                    <div class="card-body">
+                                        <h4 class="card-title">LUX</h4>
+                                        <ul class="tags text-white">
+                                            <li><a class="tag">HTML</a></li>
+                                            <li><a class="tag">CSS</a></li>
+                                            <li><a class="tag">Bootstrap</a></li>
+                                        </ul>
+                                        <hr>
+                                        <p class="card-text">
+                                            Mockup website to test my design skills. Created using Bootstrap
+                                            and
+                                            experimented with Slick Carousel, Lightbox and some Javascript for the video modal.
+                                        </p>
+                                        <a class="btn btn-outline-primary btn-primary mr-auto mt-auto "
+                                           href="https://thirsty-kowalevski-1c67cd.netlify.app/" target="_blank">Live</a>
+                                        <a class="btn btn-outline-primary btn-primary  mr-auto mt-auto "
+                                           href="https://github.com/JamesIde/LUX" target="_blank">Github</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <footer class="pb-3">
+            <hr>
+            <ul id="footer-ul">
+                <a href="https://www.linkedin.com/in/james-ide-a92368180/" class="icon-link" target="_blank">
+                    <i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/JamesIde" class="icon-link" target="_blank">
+                    <i class="fa fa-github fa-2x" aria-hidden="true"></i>
+                </a>
+                <a href="mailto:james.ide775@gmail.com" class="icon-link">
+                    <i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+                </a>
+            </ul>
+
+            <p>
+                <small>Hosted on Netlify &mdash; James Ide, 2021</small>
+            </p>
+        </footer>
+    </div>
+</body>

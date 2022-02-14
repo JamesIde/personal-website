@@ -1,0 +1,35 @@
+﻿@media only screen and (max-width: 767px) {
+    #pdf-viewer-desktop {
+        display: none;
+    }
+
+    #pdf-viewer-mobile {
+        display: inline-block !important;
+        margin-top: 50px;
+    }
+
+    #footer {
+        display: none;
+    }
+}
+
+#resume-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #494949;
+}
+
+#navbar-resume {
+    background-color: #f9f9f9;
+    border-bottom: 0.05rem solid #e5e5e5;
+}
+
+#footer {
+    background-color: #f9f9f9;
+    border-top: 0.05rem solid #e5e5e5;
+}
+
+#footer-icon > ul > a > i {
+    padding: 3px;
+    color: rgba(0, 110, 255);
+}
