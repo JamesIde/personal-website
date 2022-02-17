@@ -1,0 +1,11 @@
+﻿
+#footer {
+    background-color: #191919;
+    border-top: 0.05rem solid #191919;
+}
+
+#footer-icon > ul > a > i {
+    padding: 3px;
+    /* color: rgba(0, 110, 255); */
+    color: white;
+}

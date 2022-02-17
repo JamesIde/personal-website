@@ -1,0 +1,102 @@
+﻿@font-face {
+    font-family: Playfair-display;
+    src: url(../fonts/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: Museo;
+    src: url(../fonts/MuseoSans_700.otf);
+}
+
+@font-face {
+    font-family: Meta-serif-pro-book;
+    src: url(../fonts/MetaSerifPro-Book.ttf);
+}
+
+.wrapper {
+    background-color: #333333 !important;
+}
+
+#navbar {
+    background-color: #333333;
+    padding: 15px;
+}
+
+#main-col {
+    margin-top: 250px;
+}
+
+#archive-title {
+    color: white;
+    font-size: 33.6px;
+    font-family: "Museo", serif;
+    line-height: 33.6px;
+    padding-left: 100px;
+}
+
+#latest-record {
+    color: white;
+    font-size: 80px;
+    font-family: "Museo", serif;
+    line-height: 85px;
+}
+
+#record-header {
+    color: white;
+    font-size: 33.6px;
+    font-family: "Museo", serif;
+    line-height: 33.6px;
+}
+
+#see-more {
+    font-size: 16px;
+    font-family: "Museo", serif;
+    border-radius: 8px;
+}
+
+#read-more {
+    font-size: 16px;
+    font-family: "Museo", serif;
+    border-radius: 8px;
+    background-color: #696969;
+    color: white;
+}
+
+#archive-navbar-elements > a {
+    color: white;
+    font-family: "Museo", serif;
+    line-height: 33.6px;
+}
+
+
+
+#landing-image {
+    background: url("/images/walls-of-jerusalem.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -200px;
+    background-attachment: local;
+    min-height: 76vh;
+    min-width: 100%;
+}
+/* Cards */
+.card-body {
+    background-color: #3d3d3d;
+}
+
+#main-card {
+    border: none;
+    border-radius: 0px;
+}
+
+.card-img-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+#card-title {
+    color: white;
+    font-size: 20px;
+    font-family: "Museo", serif;
+    line-height: 25px;
+}

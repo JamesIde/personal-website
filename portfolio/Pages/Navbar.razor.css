@@ -1,0 +1,16 @@
+﻿#navbar-elements {
+    padding-right: 220px;
+}
+#archive-title {
+    color: white;
+    font-size: 33.6px;
+    font-family: "Museo", serif;
+    line-height: 33.6px;
+    padding-left: 100px;
+}
+
+#archive-navbar-elements > a {
+    color: white;
+    font-family: "Museo", serif;
+    line-height: 33.6px;
+}
