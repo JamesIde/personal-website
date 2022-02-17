@@ -1,0 +1,37 @@
+﻿@page "/The-Archive/{recordSlug}"
+
+@using Contentful.Core;
+
+@using Microsoft.Extensions.Configuration;
+@using Models
+@using portfolio.Services
+
+@inject IContentfulService contentfulService
+@inject NavigationManager NavigationManager
+
+
+
+<div class="wrapper">
+    <Navbar />
+    @foreach (var record in SingleRecord)
+{
+    <h2 class = "text-white"> @record.Title</h2>
+
+}
+</div>
+
+
+
+@code{
+    [Parameter]
+    public string recordSlug { get; set; }
+
+       public IEnumerable<Thumbnails> SingleRecord = new List<Thumbnails>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        SingleRecord = await contentfulService.GetRecordBySlug(recordSlug);
+    }
+
+}

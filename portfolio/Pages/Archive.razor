@@ -6,6 +6,7 @@
 @using portfolio.Services
 
 @inject IContentfulService contentfulService
+@inject NavigationManager NavigationManager
 
 <title>The Archive</title>
 
@@ -29,14 +30,17 @@
                 <div class="row align-items-center">
                     @foreach (var records in Records)
                     {
-                        <div class="col-md-3 offset-md-1">
-                            <div class="card mb-4" style="width: 22rem;" id="main-card">
+
+                        <div class="col-md-4 ">
+                            <div class="card mb-4" id="main-card">
                                 <img class="card-img-top" src="@records.Image.File.Url">
 
                                 <div class="card-body text-center">
+                                    @*<h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>*@
                                     <h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>
+
                                     <p class="card-text text-white pl-3 pr-3 text-left">@records.Description</p>
-                                    <button class="btn" id="read-more">
+                                    <button class="btn cursor-pointer" id="read-more" @onclick = "()=>RedirectTo(records.Slug)">
                                         READ
                                         MORE
                                     </button>
@@ -44,6 +48,8 @@
                             </div>
                         </div>
                     }
+
+
 
                 </div>
             </div>
@@ -57,8 +63,11 @@
 
     protected override async Task OnInitializedAsync()
     {
-        Records = await contentfulService.GetAssets();
+        Records = await contentfulService.GetEntries();
     }
 
-
+    private void RedirectTo(string recordSlug)
+    {
+        NavigationManager.NavigateTo($"/The-Archive/{recordSlug}");
+    }
 }
