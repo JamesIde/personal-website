@@ -1,6 +1,7 @@
 ﻿@page "/The-Archive"
 @using Contentful.Core;
 
+@using Contentful.Core.Models
 @using Microsoft.Extensions.Configuration;
 @using Models
 @using portfolio.Services
@@ -14,16 +15,19 @@
 
     <div class="wrapper">
         <Navbar />
-        <section id="newest-record">
-            <div class="container" id="landing-image">
-                <div class="row">
-                    <div class="col-lg-4 offset-md-4 text-center text-justify" id="main-col">
-                        <h1 id="latest-record">WALLS OF JERUSALEM </h1>
-                        <button class="btn btn-light " id="see-more">SEE MORE</button>
+        @foreach (var banner in BannerImage)
+        {
+            <section id="newest-record">
+                <div class="container" id="landing-image" style = "background-image: url(@banner.File.Url)">
+                    <div class="row">
+                        <div class="col-lg-4 offset-md-4 text-center text-justify" id="main-col">
+                            <h1 id="latest-record">WALLS OF JERUSALEM </h1>
+                            <button class="btn btn-light " id="see-more">SEE MORE</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        }
         <section id="records">
             <div class="container">
                 <h1 class="pt-4 mb-4" id="record-header">LATEST RECORDS</h1>
@@ -33,14 +37,14 @@
 
                         <div class="col-md-4 ">
                             <div class="card mb-4" id="main-card">
-                                <img class="card-img-top" src="@records.Image.File.Url">
+                                <img class="card-img-top" src="@records.FeaturedImage.File.Url">
 
                                 <div class="card-body text-center">
                                     @*<h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>*@
                                     <h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>
 
                                     <p class="card-text text-white pl-3 pr-3 text-left">@records.Description</p>
-                                    <button class="btn cursor-pointer" id="read-more" @onclick = "()=>RedirectTo(records.Slug)">
+                                    <button class="btn cursor-pointer" id="read-more" @onclick="()=>RedirectTo(records.Slug)">
                                         READ
                                         MORE
                                     </button>
@@ -48,10 +52,7 @@
                             </div>
                         </div>
                     }
-
-
-
-                </div>
+                    </div>
             </div>
         </section>
         <Footer />
@@ -60,10 +61,12 @@
 
 @code {
     public IEnumerable<Thumbnails> Records = new List<Thumbnails>();
+    public IEnumerable<Asset> BannerImage = new List<Asset>();
 
     protected override async Task OnInitializedAsync()
     {
         Records = await contentfulService.GetEntries();
+        BannerImage = await contentfulService.GetAssetByTitle("walls-of-jerusalem-banner");
     }
 
     private void RedirectTo(string recordSlug)

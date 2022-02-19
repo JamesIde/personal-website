@@ -1,4 +1,5 @@
 ﻿using Contentful.Core;
+using Contentful.Core.Models;
 using Contentful.Core.Search;
 using portfolio.Models;
 
@@ -12,6 +13,8 @@ namespace portfolio.Services
             _contentfulClient = contentfulClient;
         }
 
+        
+
         public async Task<IEnumerable<Thumbnails>> GetEntries()
         {
             var thumbnails = await _contentfulClient.GetEntries<Thumbnails>();
@@ -24,5 +27,13 @@ namespace portfolio.Services
             var record = await _contentfulClient.GetEntries<Thumbnails>(entryString);
             return record;
         }
+        public async Task<IEnumerable<Asset>> GetAssetByTitle(string title)
+        {
+            
+            var test = QueryBuilder<Asset>.New.FieldEquals("fields.title", title);
+            var assets = await _contentfulClient.GetAssets(test);
+            return assets;
+        }
+
     }
 }
