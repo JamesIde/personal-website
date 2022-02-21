@@ -1,12 +1,42 @@
-﻿body {
+﻿@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins-Regular);
+}
+
+@font-face {
+    font-family: Museo;
+    src: url(../fonts/MuseoSans_700.otf);
+}
+
+p{
+    font-family:Poppins;
+}
+
+section > h4{
+    font-family:Museo;
+    font-size:33.6px;
+    font-weight:700;
+
+}
+
+body {
 
 }
 
 .wrapper > * {
-    background-color: #696969;
+    background-color: #333333;
     color: white;
 }
 
+#zmskhp > *{
+    color:white !important;
+}
+
+#archive-title {
+    font-family: Museo;
+    font-size: 33.6px;
+    font-weight: 700;
+}
 /* Image Grid */
 .image-grid {
     --gap: 5px;
@@ -58,9 +88,10 @@
         --row-height: 300px;
     }
 
-    .image-grid-col-2 {
-        grid-row: span 2;
-        grid-column: span 4;
-        --row-height: 300px;
+    
+    .image-grid-col-3 {
+        grid-row: span 1;
+        grid-column: span 1;
+        --row-height: 400px;
     }
 }

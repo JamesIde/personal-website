@@ -2,7 +2,7 @@
 
 namespace portfolio.Models
 {
-    public class Thumbnails
+    public class Records
     {
         public string Slug { get; set; }
         public SystemProperties Sys { get; set; }
@@ -25,9 +25,13 @@ namespace portfolio.Models
         public string DayThreeHeader { get; set; }
         public string DayThreeDescription { get; set; }
         public List<Asset> ImageBlock3 { get; set; }
+        public string Map { get; set; }
 
+        public string GearDescription { get; set; }
+        public string TravelHeader { get; set; }
+        public string TravelDescription { get; set; }
         public string AboutHeader { get; set; }
-        public string AboutInformation { get; set; }
+        public string AboutDescription { get; set; }
 
 
 

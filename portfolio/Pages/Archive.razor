@@ -18,11 +18,11 @@
         @foreach (var banner in BannerImage)
         {
             <section id="newest-record">
-                <div class="container" id="landing-image" style = "background-image: url(@banner.File.Url)">
+                <div class="container" id="landing-image" style="background-image: url(@banner.File.Url)">
                     <div class="row">
                         <div class="col-lg-4 offset-md-4 text-center text-justify" id="main-col">
                             <h1 id="latest-record">WALLS OF JERUSALEM </h1>
-                            <button class="btn btn-light " id="see-more">SEE MORE</button>
+                            <a class="btn btn-light" href="/The-Archive/walls-of-jerusalem" id="see-more">SEE MORE</a>
                         </div>
                     </div>
                 </div>
@@ -32,7 +32,8 @@
             <div class="container">
                 <h1 class="pt-4 mb-4" id="record-header">LATEST RECORDS</h1>
                 <div class="row align-items-center">
-                    @foreach (var records in Records)
+                    @*Iterate over records*@
+                    @foreach (var records in recordList)
                     {
 
                         <div class="col-md-4 ">
@@ -52,7 +53,28 @@
                             </div>
                         </div>
                     }
-                    </div>
+                    @*Iterate over blog posts*@
+                    @foreach (var blog in blogPost)
+                    {
+
+                        <div class="col-md-4 ">
+                            <div class="card mb-4" id="main-card">
+                                <img class="card-img-top" src="@blog.BlogThumbnail.File.Url">
+
+                                <div class="card-body text-center">
+                                    @*<h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>*@
+                                    <h5 class="card-title text-center text-uppercase" id="card-title">@blog.PostTitle</h5>
+
+                                    <p class="card-text text-white pl-3 pr-3 text-left">@blog.PostDescription</p>
+                                    <button class="btn cursor-pointer" id="read-more" @onclick="()=>RedirectTo(blog.PostSlug)">
+                                        READ
+                                        MORE
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
             </div>
         </section>
         <Footer />
@@ -60,17 +82,20 @@
 </body>
 
 @code {
-    public IEnumerable<Thumbnails> Records = new List<Thumbnails>();
+    public IEnumerable<Records> recordList = new List<Records>();
     public IEnumerable<Asset> BannerImage = new List<Asset>();
+    public IEnumerable<BlogPost> blogPost = new List<BlogPost>();
 
     protected override async Task OnInitializedAsync()
     {
-        Records = await contentfulService.GetEntries();
+        recordList = await contentfulService.GetEntries();
         BannerImage = await contentfulService.GetAssetByTitle("walls-of-jerusalem-banner");
+        blogPost = await contentfulService.GetPosts();
     }
 
     private void RedirectTo(string recordSlug)
     {
         NavigationManager.NavigateTo($"/The-Archive/{recordSlug}");
     }
+    
 }

@@ -13,27 +13,33 @@ namespace portfolio.Services
             _contentfulClient = contentfulClient;
         }
 
-        
 
-        public async Task<IEnumerable<Thumbnails>> GetEntries()
+
+        public async Task<IEnumerable<Records>> GetEntries()
         {
-            var thumbnails = await _contentfulClient.GetEntries<Thumbnails>();
-            return thumbnails;
+            var entryString = QueryBuilder<Records>.New.ContentTypeIs("thumbnail");
+            var records = await _contentfulClient.GetEntries<Records>(entryString);
+            return records;
         }
-        public async Task<IEnumerable<Thumbnails>> GetRecordBySlug(string slug)
+        public async Task<IEnumerable<Records>> GetRecordBySlug(string slug)
         {
-            var entryString = QueryBuilder<Thumbnails>.New.ContentTypeIs("thumbnail").FieldEquals("fields.slug", slug);
-
-            var record = await _contentfulClient.GetEntries<Thumbnails>(entryString);
+            var entryString = QueryBuilder<Records>.New.ContentTypeIs("thumbnail").FieldEquals("fields.slug", slug);
+            var record = await _contentfulClient.GetEntries<Records>(entryString);
             return record;
         }
+
         public async Task<IEnumerable<Asset>> GetAssetByTitle(string title)
         {
-            
-            var test = QueryBuilder<Asset>.New.FieldEquals("fields.title", title);
-            var assets = await _contentfulClient.GetAssets(test);
+            var titleFilter = QueryBuilder<Asset>.New.FieldEquals("fields.title", title);
+            var assets = await _contentfulClient.GetAssets(titleFilter);
             return assets;
         }
 
+        public async Task<IEnumerable<BlogPost>> GetPosts()
+        {
+            var entryString = QueryBuilder<BlogPost>.New.ContentTypeIs("blogPost");
+            var posts = await _contentfulClient.GetEntries<BlogPost>(entryString);
+            return posts;
+        }
     }
 }

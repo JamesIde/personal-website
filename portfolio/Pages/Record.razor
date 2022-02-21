@@ -33,7 +33,7 @@
                                 <h4>@record.PrefaceHeader</h4>
                                 <p>@((MarkupString)record.PrefaceDescription)</p>
                             </section>
-                            <section id="Day-one">
+                            <section id="Day-One">
                                 <h4>@((MarkupString)record.DayOneHeader)</h4>
                                 <p class="mt-2">
                                     @((MarkupString)record.DayOneDescription)
@@ -46,7 +46,7 @@
                                         {
                                             <a href="@image.File.Url" data-toggle="lightbox"
                                    data-gallery="example-gallery"
-                                   data-footer="">
+                                   data-footer="" class="image-grid-col-3">
                                                 <img src="@image.File.Url">
                                             </a>
                                         }
@@ -63,7 +63,7 @@
 
                                 </div>
                             </section>@*End of day one*@
-                            <section id="day-two">
+                            <section id="Day-Two">
                                 <h4>@((MarkupString)record.DayTwoHeader)</h4>
                                 <p class="mt-2">@((MarkupString)record.DayTwoDescription)</p>
                                 <div class="image-grid">
@@ -90,11 +90,50 @@
 
                                 </div>
                             </section> @*End of day two*@
-                            <section id = "day-three">
-                                 <h4>@((MarkupString)record.DayThreeHeader)</h4>
-                                 <p>@((MarkupString)record.DayThreeDescription)</p>
-                            </section>
+                            <section id="Day-Three">
+                                <h4>@((MarkupString)record.DayThreeHeader)</h4>
+                                <p>@((MarkupString)record.DayThreeDescription)</p>
+                                <div class="image-grid">
+                                    @foreach (var image in record.ImageBlock3)
+                                    {
+                                        @if (image.Title.Contains("landscape") || (image.Title.Contains("ultrawide")))
+                                        {
+                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                   data-gallery="example-gallery"
+                                   data-footer="" class="image-grid-col-3">
+                                                <img src="@image.File.Url">
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                   data-gallery="example-gallery"
+                                   data-footer="" class="image-col-2">
+                                                <img src="@image.File.Url">
+                                            </a>
+                                        }
 
+                                    }
+
+                                </div>
+                            </section>
+                            <section id = "Map">
+                                <h4>Map</h4>
+                                @((MarkupString)record.Map)
+                            </section>
+                            <section id = "Gear">
+                                @((MarkupString)record.GearDescription)
+                            </section>
+                            <section id="Travel">
+                                <h4>@record.TravelHeader</h4>
+                                <p>@((MarkupString)record.TravelDescription)</p>
+
+                            </section>
+                            <section id = "About">
+                                <h4>@record.AboutHeader</h4>
+                                <p>@((MarkupString)record.AboutDescription)</p>
+                            </section>
+                            
                         </div> @*End of main col*@
                     </div>@*End of main row*@
                 </div>@*End of main container*@
@@ -110,12 +149,15 @@
     [Parameter]
     public string recordSlug { get; set; }
 
-    public IEnumerable<Thumbnails> SingleRecord = new List<Thumbnails>();
+    public IEnumerable<Records> SingleRecord = new List<Records>();
 
 
     protected override async Task OnInitializedAsync()
     {
         SingleRecord = await contentfulService.GetRecordBySlug(recordSlug);
     }
+
+   
+
 
     }
