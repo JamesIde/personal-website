@@ -1,0 +1,97 @@
+﻿@font-face {
+    font-family: Poppins;
+    src: url(../fonts/Poppins-Regular);
+}
+
+@font-face {
+    font-family: Museo;
+    src: url(../fonts/MuseoSans_700.otf);
+}
+
+p{
+    font-family:Poppins;
+}
+
+section > h4{
+    font-family:Museo;
+    font-size:33.6px;
+    font-weight:700;
+
+}
+
+body {
+
+}
+
+.wrapper > * {
+    background-color: #333333;
+    color: white;
+}
+
+#zmskhp > *{
+    color:white !important;
+}
+
+#archive-title {
+    font-family: Museo;
+    font-size: 33.6px;
+    font-weight: 700;
+}
+/* Image Grid */
+.image-grid {
+    --gap: 5px;
+    --num-cols: 4;
+    --row-height: 300px;
+    box-sizing: border-box;
+    padding: var(--gap);
+    display: grid;
+    grid-template-columns: repeat(var(--num-cols), 1fr);
+    grid-auto-rows: var(--row-height);
+    gap: var(--gap);
+}
+
+    .image-grid > a > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.image-grid-col-1 {
+    grid-column: span 1;
+}
+
+.image-grid-col-2 {
+    grid-column: span 2;
+}
+
+.image-grid-row-2 {
+    grid-row: span 2;
+}
+
+.image-grid-col-3 {
+    grid-column: span 3;
+}
+
+.image-grid-col-4 {
+    grid-column: span 4;
+}
+
+@media screen and (max-width: 1024px) {
+    .image-grid {
+        --num-cols: 2;
+        --row-height: 300px;
+    }
+
+    .image-grid-col-1 {
+        grid-row: span 2;
+        grid-column: span 4;
+        --row-height: 300px;
+    }
+
+    
+    .image-grid-col-3 {
+        grid-row: span 1;
+        grid-column: span 1;
+        --row-height: 400px;
+    }
+}

@@ -1,0 +1,31 @@
+﻿@page "/TheArchive/blog/{blogSlug}"
+
+@using Contentful.Core;
+
+@using Microsoft.Extensions.Configuration;
+@using Models
+@using portfolio.Services
+
+@inject IContentfulService contentfulService
+@inject NavigationManager NavigationManager
+
+
+
+<Navbar />
+<h3>Sup b</h3>
+<Footer />
+
+
+@code {
+    [Parameter]
+    public string blogSlug { get; set; }
+
+    public IEnumerable<BlogPost> singlePost = new List<BlogPost>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        singlePost = await contentfulService.GetPostBySlug(blogSlug);
+    }
+
+    }

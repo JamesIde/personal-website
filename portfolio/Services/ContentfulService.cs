@@ -41,5 +41,11 @@ namespace portfolio.Services
             var posts = await _contentfulClient.GetEntries<BlogPost>(entryString);
             return posts;
         }
+        public async Task<IEnumerable<BlogPost>> GetPostBySlug(string slug)
+        {
+            var entryString = QueryBuilder<BlogPost>.New.ContentTypeIs("blogPost").FieldEquals("fields.slug", slug);
+            var post = await _contentfulClient.GetEntries<BlogPost>(entryString);
+            return post;
+        }
     }
 }
