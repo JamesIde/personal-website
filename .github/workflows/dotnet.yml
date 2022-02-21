@@ -9,7 +9,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1 # Setup .NET Core
       with:
-        dotnet-version: 6.0.102
+        dotnet-version: 6.0.101
     - name: Build with dotnet
       run: dotnet build --configuration Release 
     - name: Publish personal portfolio website to netlify
