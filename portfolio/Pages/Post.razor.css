@@ -12,7 +12,7 @@ p{
     font-family:Poppins;
 }
 
-section > h4{
+h4{
     font-family:Museo;
     font-size:33.6px;
     font-weight:700;
@@ -41,8 +41,8 @@ body {
 .image-grid {
     --gap: 5px;
     --num-cols: 4;
-    --row-height: 300px;
-    box-sizing: border-box;
+    --row-height: 250px;
+    --row-width:500px;
     padding: var(--gap);
     display: grid;
     grid-template-columns: repeat(var(--num-cols), 1fr);
@@ -61,7 +61,7 @@ body {
 }
 
 .image-grid-col-2 {
-    grid-column: span 2;
+    grid-column: span 1;
 }
 
 .image-grid-row-2 {
