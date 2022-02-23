@@ -22,4 +22,4 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       with:
           args: deploy --dir=publishoutput/wwwroot --prod #push this folder to Netlify
-          secrets: '["yvyFkuYA_iNsjhCFWOiu_-r7m6r3dPbgrYioQxhbIzw", "9fcda215-bdf5-47b2-a5a6-72c4a546aace"]' 
+          
