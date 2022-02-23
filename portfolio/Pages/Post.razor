@@ -58,7 +58,7 @@
     [Parameter]
     public string blogSlug { get; set; }
 
-    public List<BlogPost> singlePost = new List<BlogPost>();
+    public IEnumerable<BlogPost> singlePost = new List<BlogPost>();
 
 
     protected override async Task OnInitializedAsync()

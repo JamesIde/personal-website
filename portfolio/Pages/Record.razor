@@ -117,11 +117,11 @@
 
                                 </div>
                             </section>
-                            <section id = "Map">
+                            <section id="Map">
                                 <h4>Map</h4>
                                 @((MarkupString)record.Map)
                             </section>
-                            <section id = "Gear">
+                            <section id="Gear">
                                 @((MarkupString)record.GearDescription)
                             </section>
                             <section id="Travel">
@@ -129,11 +129,11 @@
                                 <p>@((MarkupString)record.TravelDescription)</p>
 
                             </section>
-                            <section id = "About">
+                            <section id="About">
                                 <h4>@record.AboutHeader</h4>
                                 <p>@((MarkupString)record.AboutDescription)</p>
                             </section>
-                            
+
                         </div> @*End of main col*@
                     </div>@*End of main row*@
                 </div>@*End of main container*@
@@ -154,10 +154,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        SingleRecord = await contentfulService.GetRecordBySlug(recordSlug);
+        SingleRecord = await contentfulService.GetEntryBySlug(recordSlug);
     }
-
-   
-
 
     }
