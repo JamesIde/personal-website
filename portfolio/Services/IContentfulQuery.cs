@@ -3,7 +3,7 @@ using portfolio.Models;
 
 namespace portfolio.Services
 {
-    public interface IContentfulService
+    public interface IContentfulQuery
     {
 
         public Task<IEnumerable<Records>> GetEntries();
