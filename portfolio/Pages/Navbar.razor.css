@@ -18,3 +18,11 @@
 #navbar-intro {
     background-color: #191919;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+    #archive-title{
+        padding-left:0px;
+    }
+}

@@ -13,6 +13,9 @@
     src: url(../fonts/MetaSerifPro-Book.ttf);
 }
 
+body{
+    overflow-x:hidden;
+}
 .wrapper {
     background-color: #333333 !important;
 }
@@ -26,13 +29,6 @@
     margin-top: 250px;
 }
 
-#archive-title {
-    color: white;
-    font-size: 33.6px;
-    font-family: "Museo", serif;
-    line-height: 33.6px;
-    padding-left: 100px;
-}
 
 #latest-record {
     color: white;
@@ -78,6 +74,23 @@
     min-height: 76vh;
     min-width: 100%;
 }
+
+
+@media only screen and (max-width: 600px) {
+    #landing-image{
+        background-position-y: 0px;
+        min-height:55vh;
+    }
+    #latest-record{
+        font-size:65px;
+    }
+    #main-col{
+        margin-top:150px;
+    }
+}
+
+
+
 /* Cards */
 .card-body {
     background-color: #3d3d3d;
