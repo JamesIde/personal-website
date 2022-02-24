@@ -1,4 +1,4 @@
-﻿@page "/TheArchive"
+﻿@page "/the-archive"
 @using Contentful.Core;
 
 @using Contentful.Core.Models
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-lg-4 offset-md-4 text-center text-justify" id="main-col">
                                 <h1 id="latest-record">WALLS OF JERUSALEM </h1>
-                                <a class="btn btn-light" href="/TheArchive/record/walls-of-jerusalem" id="see-more">SEE MORE</a>
+                                <a class="btn btn-light" href="/the-archive/record/walls-of-jerusalem" id="see-more">SEE MORE</a>
                             </div>
                         </div>
                     </div>
@@ -115,11 +115,11 @@
 
     private void RedirectTo(string recordSlug)
     {
-        NavigationManager.NavigateTo($"/TheArchive/record/{recordSlug}");
+        NavigationManager.NavigateTo($"/the-archive/record/{recordSlug}");
     }
 
     private void RedirectToPost(string blogSlug)
     {
-        NavigationManager.NavigateTo($"/TheArchive/blog/{blogSlug}");
+        NavigationManager.NavigateTo($"/the-archive/blog/{blogSlug}");
     }
 }
