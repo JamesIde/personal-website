@@ -33,8 +33,6 @@ namespace portfolio.Models
         public string AboutHeader { get; set; }
         public string AboutDescription { get; set; }
 
-
-
     }
 
 }

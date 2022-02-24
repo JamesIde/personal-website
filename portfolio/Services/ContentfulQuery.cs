@@ -14,6 +14,26 @@ namespace portfolio.Services
             _httpClient = httpClient;
 
         }
+
+
+        public async Task<IEnumerable<ContentThumbnail>> GetContentThumbnails()
+        {
+            var response = await _httpClient.GetAsync($"api/ContentfulService/GetContentThumbnails");
+            var content = await response.Content.ReadAsStringAsync();
+            var contentThumbnails = JsonConvert.DeserializeObject<IEnumerable<ContentThumbnail>>(content);
+            return contentThumbnails;
+        }
+
+        //Retrieve BlogPostThumbnails
+        public async Task<IEnumerable<BlogPostThumbnail>> GetPostThumbnails()
+        {
+            var response = await _httpClient.GetAsync($"api/ContentfulService/GetPostThumbnails");
+            var content = await response.Content.ReadAsStringAsync();
+            var blogPost = JsonConvert.DeserializeObject<IEnumerable<BlogPostThumbnail>>(content);
+            return blogPost;
+        }
+
+
         //Retrieve posts
         public async Task<IEnumerable<BlogPost>> GetPostBySlug(string slug)
         {
@@ -23,7 +43,6 @@ namespace portfolio.Services
             return blogpost;
 
         }
-
         public async Task<IEnumerable<BlogPost>> GetPosts()
         {
             var response = await _httpClient.GetAsync($"api/ContentfulService/GetPosts");
@@ -60,7 +79,6 @@ namespace portfolio.Services
             return records;
         }
 
-
-
+        
     }
 }
