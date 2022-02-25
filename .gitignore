@@ -363,3 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /portfolio-api/appsettings.json
 /portfolio-api/Properties
+/portfolio-api-tests/ContentfulTests.cs
+/portfolio-api-tests/portfolio-api-tests.csproj
