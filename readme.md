@@ -3,7 +3,7 @@
 
 My website containing personal projects and records in The Archive. You can view the site [here](https://jamesaide.com/).
 
-The front end is created using [Blazor WebAssembly](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) and styled with [Bootstrap](https://getbootstrap.com/). I found this the most effective given Bootstrap is baked into .NET projects. Images and texts are hosted on [Contentful](https://www.contentful.com/), which gives me unparalleled freedom and creativity to deserialise into whatever objects I desire, in this case, these are defined in ```portfolio/models```. The Contentful CDA is queried by a ```portfolio-api``` that is hosted on Azure, and consumed on the client side through ```ContentfulQuery``` service.
+The front end is created using [Blazor WebAssembly](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor) and styled with [Bootstrap](https://getbootstrap.com/). I found this the most effective given Bootstrap is baked into .NET projects. Images and texts are hosted on [Contentful](https://www.contentful.com/), which gives me unparalleled freedom and creativity to deserialise into whatever objects I desire, in this case, these are defined in ```portfolio/models```. The Contentful CDA is queried by ```portfolio-api``` that is hosted on Azure, and consumed on the client side through ```ContentfulQuery``` service.
 This negates having to store any keys in appsettings.json, or use environmental variables to store these keys as the client side cannot access them at a browser level (AFAIK).
 
 ## Usage
