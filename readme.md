@@ -14,7 +14,7 @@ This negates having to store any keys in appsettings.json, or use environmental 
 
 ## Resources I Used
 - Harmen Hoek's [travel itinerary](https://harmenhoek.com/) for inspiration to create and design The Archive.
-- Max Mitchell's [video](https://www.youtube.com/watch?v=m6vxzu95sOI&t=445s) on building his website with Gatsby and using Contentful. This was my first exposure to the world of content management systems in a well-layed out video with a tangible result at the end. 
+- Max Mitchell's [video](https://www.youtube.com/watch?v=m6vxzu95sOI) on building his website with Gatsby and using Contentful. This was my first exposure to the world of content management systems in a well-layed out video with a tangible result at the end. 
 - Robert Linde's [blog](https://robertlinde.se/) for Contentful .NET SDK help, alongside the official [documentation](https://www.contentful.com/developers/docs/net/tutorials/using-net-cda-sdk/).
 ## Future Development
 - Investigate filtering assets/entries by metadata tags, rather than title.
@@ -23,5 +23,5 @@ This negates having to store any keys in appsettings.json, or use environmental 
 - Alter the styling to sooth my perfectionism. 
 
 ## Closing Thoughts
-I wanted to create a responsive portfolio website using a .NET framework and provide the groundwork for my 'blog' to be built from. Adding new records to The Archive is simple due to the power of SPA frameworks. The web api introduces additional complexity and isn't as fast to query and retrieve my Contentful entries as I thought it would be, but remains an excellent alternative to storing all images (hundreds of them) in wwwroot/images.
-This project was also a means to test my design skills, and build upon my understanding of Blazor WebAssembly, consuming web APIs and sifting through documentation to solve my problems.
+I wanted to create a responsive portfolio website using a .NET framework and provide the groundwork for my 'blog' to be built from. Adding new records to The Archive is simple due to the power of SPA frameworks with a headless CMS. The Web API introduces additional complexity and isn't as fast to query and retrieve my Contentful entries as I thought it would be, but remains an excellent alternative to storing all images (hundreds of them) in wwwroot/images.
+This project was also a means to test my design skills, and build upon my understanding of Blazor WebAssembly, consuming APIs and sifting through documentation to solve my problems.
