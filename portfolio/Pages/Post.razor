@@ -10,60 +10,67 @@
 @inject NavigationManager NavigationManager
 
 
-
-<Navbar />
 <body>
-    @foreach (var post in singlePost)
+    @if (Loading)
     {
-        <div class="wrapper">
-            <section id="article-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 offset-md-1">
-                            <h4 class="mt-4 text-center">@post.PostTitle</h4>
-                            <p class="text-center">@post.PostDescription</p>
-                            <div class="image-grid">
-                                @foreach (var image in post.ImageGallery)
-                                {
-
-                                    @if (image.File.Details.Image.Width.Equals(4032))
+        <div class="loader-black"></div>
+    }
+    else
+    {
+        @foreach (var post in singlePost)
+        {
+            <div class="wrapper">
+                <Navbar />
+                <section id="article-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <h4 class="mt-4 text-center">@post.PostTitle</h4>
+                                <p class="text-center">@post.PostDescription</p>
+                                <div class="image-grid">
+                                    @foreach (var image in post.ImageGallery)
                                     {
-                                        <a href="@image.File.Url" data-toggle="lightbox"
+
+                                        @if (image.File.Details.Image.Width.Equals(4032))
+                                        {
+                                            <a href="@image.File.Url" data-toggle="lightbox"
                                data-gallery="example-gallery"
                                data-footer="" class="image-grid-col-2">
-                                            <img src="@image.File.Url">
-                                        </a>
-                                    }
-                                    else
-                                    {
-                                        <a href="@image.File.Url" data-toggle="lightbox"
+                                                <img src="@image.File.Url">
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a href="@image.File.Url" data-toggle="lightbox"
                                data-gallery="example-gallery"
                                data-footer="">
-                                            <img src="@image.File.Url">
-                                        </a>
+                                                <img src="@image.File.Url">
+                                            </a>
+                                        }
                                     }
-                                }
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+                <Footer />
+            </div>
+        }
     }
 </body>
-<Footer />
-
-
 @code {
     [Parameter]
     public string blogSlug { get; set; }
 
     public IEnumerable<BlogPost> singlePost = new List<BlogPost>();
+    public bool Loading { get; set; } = false;
 
 
     protected override async Task OnInitializedAsync()
     {
+        Loading = true;
         singlePost = await contentfulService.GetPostBySlug(blogSlug);
+        Loading = false;
     }
 
     }

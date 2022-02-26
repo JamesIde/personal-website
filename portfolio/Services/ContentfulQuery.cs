@@ -33,8 +33,13 @@ namespace portfolio.Services
         //Retrieve posts
         public async Task<IEnumerable<BlogPost>> GetPostBySlug(string slug)
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<BlogPost>>($"api/ContentfulService/GetPostBySlug?slug={slug}");
+            var response = await _httpClient.GetAsync($"api/ContentfulService/GetPostBySlug?slug={slug}");
+            var content = await response.Content.ReadAsStringAsync();
+            var blogpost = JsonConvert.DeserializeObject<IEnumerable<BlogPost>>(content);
+            return blogpost;
+
         }
+
         public async Task<IEnumerable<BlogPost>> GetPosts()
         {
             return await _httpClient.GetFromJsonAsync<IEnumerable<BlogPost>>($"api/ContentfulService/GetPosts");
@@ -47,12 +52,12 @@ namespace portfolio.Services
             return await _httpClient.GetFromJsonAsync<IEnumerable<Records>>($"api/ContentfulService/GetEntries");
 
         }
-
-
-
         public async Task<IEnumerable<Records>> GetEntryBySlug(string slug)
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<Records>>($"api/ContentfulService/GetEntryBySlug?slug={slug}");
+            var response = await _httpClient.GetAsync($"api/ContentfulService/GetEntryBySlug?slug={slug}");
+            var content = await response.Content.ReadAsStringAsync();
+            var records = JsonConvert.DeserializeObject<IEnumerable<Records>>(content);
+            return records;
         }
         //Retrieve assets
         public async Task<IEnumerable<Asset>> GetAssetByTitle(string title)

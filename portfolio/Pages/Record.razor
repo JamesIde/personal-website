@@ -11,139 +11,145 @@
 
 
 
-<Navbar />
-    @foreach (var record in SingleRecord)
+    @if (Loading)
 {
-    <body>
-        <div class="wrapper">
+    <div class="loader-black"></div>
+}
+else
+{
+@foreach (var record in SingleRecord)
+    {
+        <body>
+            <div class="wrapper">
+                <Navbar />
 
-            <section id="article-header">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-10 offset-md-1">
-                            <img src="@record.FeaturedImage.File.Url" alt="" class="img-fluid">
+                <section id="article-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <img src="@record.FeaturedImage.File.Url" alt="" class="img-fluid">
 
-                            <h4 class="mt-4 text-center" id="archive-title">@record.Title</h4>
-                            <p class="mt-3 text-center" id="archive-subtitle">@record.Date</p>
-                            <hr>
-                            <p id="archive-subtitle">
-                                @record.Description
-                            </p>
-                            <section id="introduction">
-                                <h4>@record.PrefaceHeader</h4>
-                                <p>@((MarkupString)record.PrefaceDescription)</p>
-                            </section>
-                            <section id="Day-One">
-                                <h4>@((MarkupString)record.DayOneHeader)</h4>
-                                <p class="mt-2">
-                                    @((MarkupString)record.DayOneDescription)
-
+                                <h4 class="mt-4 text-center" id="archive-title">@record.Title</h4>
+                                <p class="mt-3 text-center" id="archive-subtitle">@record.Date</p>
+                                <hr>
+                                <p id="archive-subtitle">
+                                    @record.Description
                                 </p>
-                                <div class="image-grid">
-                                    @foreach (var image in record.ImageBlock1)
-                                    {
-                                        @if (image.Title.Contains("landscape"))
+                                <section id="introduction">
+                                    <h4>@record.PrefaceHeader</h4>
+                                    <p>@((MarkupString)record.PrefaceDescription)</p>
+                                </section>
+                                <section id="Day-One">
+                                    <h4>@((MarkupString)record.DayOneHeader)</h4>
+                                    <p class="mt-2">
+                                        @((MarkupString)record.DayOneDescription)
+
+                                    </p>
+                                    <div class="image-grid">
+                                        @foreach (var image in record.ImageBlock1)
                                         {
-                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                            @if (image.Title.Contains("landscape"))
+                                            {
+                                                <a href="@image.File.Url" data-toggle="lightbox"
                                    data-gallery="example-gallery"
                                    data-footer="" class="image-grid-col-3">
-                                                <img src="@image.File.Url">
-                                            </a>
-                                        }
-                                        else
-                                        {
-                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                                    <img src="@image.File.Url">
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@image.File.Url" data-toggle="lightbox"
                                    data-gallery="example-gallery"
                                    data-footer="">
-                                                <img src="@image.File.Url">
-                                            </a>
+                                                    <img src="@image.File.Url">
+                                                </a>
+                                            }
+
                                         }
 
-                                    }
-
-                                </div>
-                            </section>@*End of day one*@
-                            <section id="Day-Two">
-                                <h4>@((MarkupString)record.DayTwoHeader)</h4>
-                                <p class="mt-2">@((MarkupString)record.DayTwoDescription)</p>
-                                <div class="image-grid">
-                                    @foreach (var image in record.ImageBlock2)
-                                    {
-                                        @if (image.Title.Contains("landscape") || (image.Title.Contains("ultrawide")))
+                                    </div>
+                                </section>@*End of day one*@
+                                <section id="Day-Two">
+                                    <h4>@((MarkupString)record.DayTwoHeader)</h4>
+                                    <p class="mt-2">@((MarkupString)record.DayTwoDescription)</p>
+                                    <div class="image-grid">
+                                        @foreach (var image in record.ImageBlock2)
                                         {
-                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                            @if (image.Title.Contains("landscape") || (image.Title.Contains("ultrawide")))
+                                            {
+                                                <a href="@image.File.Url" data-toggle="lightbox"
                                    data-gallery="example-gallery"
                                    data-footer="" class="image-grid-col-3">
-                                                <img src="@image.File.Url">
-                                            </a>
-                                        }
-                                        else
-                                        {
-                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                                    <img src="@image.File.Url">
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@image.File.Url" data-toggle="lightbox"
                                    data-gallery="example-gallery"
                                    data-footer="" class="image-col-2">
-                                                <img src="@image.File.Url">
-                                            </a>
+                                                    <img src="@image.File.Url">
+                                                </a>
+                                            }
+
                                         }
 
-                                    }
-
-                                </div>
-                            </section> @*End of day two*@
-                            <section id="Day-Three">
-                                <h4>@((MarkupString)record.DayThreeHeader)</h4>
-                                <p>@((MarkupString)record.DayThreeDescription)</p>
-                                <div class="image-grid">
-                                    @foreach (var image in record.ImageBlock3)
-                                    {
-                                        @if (image.Title.Contains("landscape") || (image.Title.Contains("ultrawide")))
+                                    </div>
+                                </section> @*End of day two*@
+                                <section id="Day-Three">
+                                    <h4>@((MarkupString)record.DayThreeHeader)</h4>
+                                    <p>@((MarkupString)record.DayThreeDescription)</p>
+                                    <div class="image-grid">
+                                        @foreach (var image in record.ImageBlock3)
                                         {
-                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                            @if (image.Title.Contains("landscape") || (image.Title.Contains("ultrawide")))
+                                            {
+                                                <a href="@image.File.Url" data-toggle="lightbox"
                                    data-gallery="example-gallery"
                                    data-footer="" class="image-grid-col-3">
-                                                <img src="@image.File.Url">
-                                            </a>
-                                        }
-                                        else
-                                        {
-                                            <a href="@image.File.Url" data-toggle="lightbox"
+                                                    <img src="@image.File.Url">
+                                                </a>
+                                            }
+                                            else
+                                            {
+                                                <a href="@image.File.Url" data-toggle="lightbox"
                                    data-gallery="example-gallery"
                                    data-footer="" class="image-col-2">
-                                                <img src="@image.File.Url">
-                                            </a>
+                                                    <img src="@image.File.Url">
+                                                </a>
+                                            }
+
                                         }
 
-                                    }
+                                    </div>
+                                </section>
+                                <section id="Map">
+                                    <h4>Map</h4>
+                                    @((MarkupString)record.Map)
+                                </section>
+                                <section id="Gear">
+                                    <h4>Gear</h4>
+                                    <p>@((MarkupString)record.GearDescription)</p>
+                                </section>
+                                <section id="Travel">
+                                    <h4>@record.TravelHeader</h4>
+                                    <p>@((MarkupString)record.TravelDescription)</p>
 
-                                </div>
-                            </section>
-                            <section id="Map">
-                                <h4>Map</h4>
-                                @((MarkupString)record.Map)
-                            </section>
-                            <section id="Gear">
-                                <h4>Gear</h4>
-                                <p>@((MarkupString)record.GearDescription)</p>
-                            </section>
-                            <section id="Travel">
-                                <h4>@record.TravelHeader</h4>
-                                <p>@((MarkupString)record.TravelDescription)</p>
+                                </section>
+                                <section id="About">
+                                    <h4>@record.AboutHeader</h4>
+                                    <p>@((MarkupString)record.AboutDescription)</p>
+                                </section>
 
-                            </section>
-                            <section id="About">
-                                <h4>@record.AboutHeader</h4>
-                                <p>@((MarkupString)record.AboutDescription)</p>
-                            </section>
-
-                        </div> @*End of main col*@
-                    </div>@*End of main row*@
-                </div>@*End of main container*@
-            </section>@*End of main section*@
-        </div> @*End of main wrapper*@
-    </body>
-    <Footer />
+                            </div> @*End of main col*@
+                        </div>@*End of main row*@
+                    </div>@*End of main container*@
+                </section>@*End of main section*@
+            </div> @*End of main wrapper*@
+        </body>
+        <Footer />
+    }
 }
-
 
 
 @code {
@@ -152,10 +158,13 @@
 
     public IEnumerable<Records> SingleRecord = new List<Records>();
 
+    public bool Loading { get; set; } = false;
 
     protected override async Task OnInitializedAsync()
     {
+        Loading = true;
         SingleRecord = await contentfulService.GetEntryBySlug(recordSlug);
+        Loading = false;
     }
 
     }

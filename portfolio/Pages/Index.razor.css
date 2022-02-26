@@ -295,7 +295,7 @@ footer {
     }
 
     section {
-        border: 1px solid #e5e5e5;
+        border-width: 1px 0;
         border-width: 1px 0;
         padding: 20px 0;
         margin: 0 0 20px;
@@ -347,7 +347,15 @@ footer {
         display: none;
     }
 }
+@media only screen and (max-width: 1536px) {
+    #profile-picture {
+       display:none;
+    }
 
+    #navbar-resume {
+        display: none;
+    }
+}
 @media print, screen and (max-width: 480px) {
     body {
         padding: 15px;
