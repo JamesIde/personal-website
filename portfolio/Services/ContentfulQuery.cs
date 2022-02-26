@@ -3,6 +3,7 @@ using Contentful.Core.Models;
 using Contentful.Core.Search;
 using Newtonsoft.Json;
 using portfolio.Models;
+using System.Net.Http.Json;
 
 namespace portfolio.Services
 {
@@ -18,67 +19,45 @@ namespace portfolio.Services
 
         public async Task<IEnumerable<ContentThumbnail>> GetContentThumbnails()
         {
-            var response = await _httpClient.GetAsync($"api/ContentfulService/GetContentThumbnails");
-            var content = await response.Content.ReadAsStringAsync();
-            var contentThumbnails = JsonConvert.DeserializeObject<IEnumerable<ContentThumbnail>>(content);
-            return contentThumbnails;
+            return await _httpClient.GetFromJsonAsync<IEnumerable<ContentThumbnail>>($"api/ContentfulService/GetContentThumbnails");
+
         }
 
         //Retrieve BlogPostThumbnails
         public async Task<IEnumerable<BlogPostThumbnail>> GetPostThumbnails()
         {
-            var response = await _httpClient.GetAsync($"api/ContentfulService/GetPostThumbnails");
-            var content = await response.Content.ReadAsStringAsync();
-            var blogPost = JsonConvert.DeserializeObject<IEnumerable<BlogPostThumbnail>>(content);
-            return blogPost;
+            return await _httpClient.GetFromJsonAsync<IEnumerable<BlogPostThumbnail>>($"api/ContentfulService/GetPostThumbnails");
         }
 
 
         //Retrieve posts
         public async Task<IEnumerable<BlogPost>> GetPostBySlug(string slug)
         {
-            var response = await _httpClient.GetAsync($"api/ContentfulService/GetPostBySlug?slug={slug}");
-            var content = await response.Content.ReadAsStringAsync();
-            var blogpost = JsonConvert.DeserializeObject<IEnumerable<BlogPost>>(content);
-            return blogpost;
-
+            return await _httpClient.GetFromJsonAsync<IEnumerable<BlogPost>>($"api/ContentfulService/GetPostBySlug?slug={slug}");
         }
         public async Task<IEnumerable<BlogPost>> GetPosts()
         {
-            var response = await _httpClient.GetAsync($"api/ContentfulService/GetPosts");
-            var content = await response.Content.ReadAsStringAsync();
-            var blogposts = JsonConvert.DeserializeObject<IEnumerable<BlogPost>>(content);
-            return blogposts;
+            return await _httpClient.GetFromJsonAsync<IEnumerable<BlogPost>>($"api/ContentfulService/GetPosts");
         }
 
-        
+
 
         public async Task<IEnumerable<Records>> GetEntries()
         {
-            var response = await _httpClient.GetAsync($"api/ContentfulService/GetEntries");
-            var content = await response.Content.ReadAsStringAsync();
-            var records = JsonConvert.DeserializeObject<IEnumerable<Records>>(content);
-            return records;
+            return await _httpClient.GetFromJsonAsync<IEnumerable<Records>>($"api/ContentfulService/GetEntries");
+
         }
 
-       
+
 
         public async Task<IEnumerable<Records>> GetEntryBySlug(string slug)
         {
-            var response = await _httpClient.GetAsync($"api/ContentfulService/GetEntryBySlug?slug={slug}");
-            var content = await response.Content.ReadAsStringAsync();
-            var records = JsonConvert.DeserializeObject<IEnumerable<Records>>(content);
-            return records;
+            return await _httpClient.GetFromJsonAsync<IEnumerable<Records>>($"api/ContentfulService/GetEntryBySlug?slug={slug}");
         }
         //Retrieve assets
         public async Task<IEnumerable<Asset>> GetAssetByTitle(string title)
         {
-            var response = await _httpClient.GetAsync($"api/ContentfulService/GetAssetByTitle?title={title}");
-            var content = await response.Content.ReadAsStringAsync();
-            var records = JsonConvert.DeserializeObject<IEnumerable<Asset>>(content);
-            return records;
+            return await _httpClient.GetFromJsonAsync<IEnumerable<Asset>>($"api/ContentfulService/GetAssetByTitle?title={title}");
         }
-
-        
     }
 }

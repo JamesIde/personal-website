@@ -108,11 +108,14 @@ body{
 
 #card-title {
     color: white;
-    font-size: 20px;
+    font-size: 21.5px;
     font-family: "Museo", serif;
     line-height: 25px;
 }
 
+#card-description-text{
+    font-size:16px;
+}
 /*Loader*/
 .loader-white {
     color: white;
