@@ -15,6 +15,8 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddScoped<IContentfulQuery, ContentfulQuery>();
 
+
+
 //Base url points to our api for contentful queries
 builder.Services.AddScoped<HttpClient>(s =>
 {

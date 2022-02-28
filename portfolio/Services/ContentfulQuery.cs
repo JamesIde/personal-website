@@ -59,6 +59,7 @@ namespace portfolio.Services
             var records = JsonConvert.DeserializeObject<IEnumerable<Records>>(content);
             return records;
         }
+
         //Retrieve assets
         public async Task<IEnumerable<Asset>> GetAssetByTitle(string title)
         {

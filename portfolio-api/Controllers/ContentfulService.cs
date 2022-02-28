@@ -17,6 +17,7 @@ namespace portfolio_api.Controllers
         {
             _contentfulClient = contentfulClient;
         }
+
         //Blog posts thumbnails 
         [HttpGet]
         [Route("GetPostThumbnails")]
