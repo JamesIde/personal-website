@@ -2,9 +2,3 @@
   from = "/*"
   to = "/index.html"
   status = 200
-
-[[redirects]]
-  from = "https://jamesaide.com/wild-south-coast-way"
-  to = "https://jamesaide.com/the-archive/record/the-wild-south-coast-way"
-  status = 301
-  
