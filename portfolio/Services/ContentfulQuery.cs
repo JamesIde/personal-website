@@ -2,7 +2,7 @@
 using Contentful.Core.Models;
 using Contentful.Core.Search;
 using Newtonsoft.Json;
-using portfolio.Models;
+using portfolio_models.Models;
 using System.Net.Http.Json;
 
 namespace portfolio.Services
@@ -19,8 +19,10 @@ namespace portfolio.Services
 
         public async Task<IEnumerable<ContentThumbnail>> GetContentThumbnails()
         {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<ContentThumbnail>>($"api/ContentfulService/GetContentThumbnails");
-
+            var response = await _httpClient.GetAsync($"api/ContentfulService/GetContentThumbnails");
+            var content = await response.Content.ReadAsStringAsync();
+            var contentThumbnails = JsonConvert.DeserializeObject<IEnumerable<ContentThumbnail>>(content);
+            return contentThumbnails;
         }
 
         //Retrieve BlogPostThumbnails
@@ -40,18 +42,6 @@ namespace portfolio.Services
 
         }
 
-        public async Task<IEnumerable<BlogPost>> GetPosts()
-        {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<BlogPost>>($"api/ContentfulService/GetPosts");
-        }
-
-
-
-        public async Task<IEnumerable<Records>> GetEntries()
-        {
-            return await _httpClient.GetFromJsonAsync<IEnumerable<Records>>($"api/ContentfulService/GetEntries");
-
-        }
         public async Task<IEnumerable<Records>> GetEntryBySlug(string slug)
         {
             var response = await _httpClient.GetAsync($"api/ContentfulService/GetEntryBySlug?slug={slug}");
