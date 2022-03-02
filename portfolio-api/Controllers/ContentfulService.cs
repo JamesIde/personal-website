@@ -3,7 +3,7 @@ using Contentful.Core.Models;
 using Contentful.Core.Search;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using portfolio_api.Models;
+using portfolio_models.Models;
 
 namespace portfolio_api.Controllers
 {
