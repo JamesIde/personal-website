@@ -1,6 +1,6 @@
 ﻿using Contentful.Core.Models;
 
-namespace portfolio_models.Models
+namespace portfolio.Models
 {
     public class Records
     {
@@ -32,6 +32,7 @@ namespace portfolio_models.Models
         public string TravelDescription { get; set; }
         public string AboutHeader { get; set; }
         public string AboutDescription { get; set; }
+
     }
 
 }

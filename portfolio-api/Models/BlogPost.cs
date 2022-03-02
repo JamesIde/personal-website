@@ -1,6 +1,6 @@
 ﻿using Contentful.Core.Models;
 
-namespace portfolio_models.Models
+namespace portfolio_api.Models
 {
     public class BlogPost
     {

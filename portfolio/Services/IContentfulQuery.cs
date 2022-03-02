@@ -1,5 +1,5 @@
 ﻿using Contentful.Core.Models;
-using portfolio_models.Models;
+using portfolio.Models;
 
 namespace portfolio.Services
 {
@@ -8,6 +8,7 @@ namespace portfolio.Services
         // Records
         public Task<IEnumerable<ContentThumbnail>> GetContentThumbnails();
 
+        public Task<IEnumerable<Records>> GetEntries();
         public Task<IEnumerable<Records>> GetEntryBySlug(string slug);
 
         //Assets
@@ -16,6 +17,7 @@ namespace portfolio.Services
         // Blog posts
         public Task<IEnumerable<BlogPostThumbnail>> GetPostThumbnails();
 
+        public Task<IEnumerable<BlogPost>> GetPosts();
         public Task<IEnumerable<BlogPost>> GetPostBySlug(string slug);
 
     }
