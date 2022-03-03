@@ -4,8 +4,8 @@
   status = 200
 
 [[redirects]]
-  from = "https://jamesaide.com/wild-south-coast-way"
-  to = "https://jamesaide.com/the-archive/record/the-wild-south-coast-way"
+  from = "/wild-south-coast-way"
+  to = "/the-archive/record/the-wild-south-coast-way"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
