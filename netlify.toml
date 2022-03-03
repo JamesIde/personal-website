@@ -3,10 +3,4 @@
   to = "/index.html"
   status = 200
 
-[[redirects]]
-  from = "/wild-south-coast-way"
-  to = "/the-archive/record/the-wild-south-coast-way"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
 
