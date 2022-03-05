@@ -1,0 +1,11 @@
+﻿@page "/wild-south-coast-way"
+@inject NavigationManager NavigationManager
+
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        NavigationManager.NavigateTo("the-archive/record/the-wild-south-coast-way");
+    }
+}
