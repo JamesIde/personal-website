@@ -13,9 +13,10 @@
     src: url(../fonts/MetaSerifPro-Book.ttf);
 }
 
-body{
-    overflow-x:hidden;
+body {
+    overflow-x: hidden;
 }
+
 .wrapper {
     background-color: #333333 !important;
 }
@@ -33,8 +34,8 @@ body{
 #latest-record {
     color: white;
     font-size: 80px;
-    /*    font-family: "Museo", serif;
-*/ line-height: 85px;
+    font-family: "Museo", serif;
+    line-height: 85px;
 }
 
 #record-header {
@@ -74,18 +75,33 @@ body{
     min-height: 76vh;
     min-width: 100%;
 }
-
-
-@media only screen and (max-width: 600px) {
-    #landing-image{
+@media only screen and (max-width: 1250px) {
+    #landing-image {
         background-position-y: 0px;
-        min-height:55vh;
+        min-height: 65vh;
     }
-    #latest-record{
-        font-size:55px;
+
+    #latest-record {
+        font-size: 55px;
     }
-    #main-col{
-        margin-top:150px;
+
+    #main-col {
+        margin-top: 150px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #landing-image {
+        background-position-y: 0px;
+        min-height: 55vh;
+    }
+
+    #latest-record {
+        font-size: 55px;
+    }
+
+    #main-col {
+        margin-top: 150px;
     }
 }
 
@@ -113,8 +129,8 @@ body{
     line-height: 25px;
 }
 
-#card-description-text{
-    font-size:16px;
+#card-description-text {
+    font-size: 16px;
 }
 /*Loader*/
 .loader-white {

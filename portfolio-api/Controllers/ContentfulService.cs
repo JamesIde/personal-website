@@ -18,30 +18,13 @@ namespace portfolio_api.Controllers
             _contentfulClient = contentfulClient;
         }
 
-        //Blog posts thumbnails 
-        [HttpGet]
-        [Route("GetPostThumbnails")]
-        public async Task<IActionResult> GetPostThumbnails()
-        {
-            var postThumbnails = await _contentfulClient.GetEntriesByType<BlogPostThumbnail>("blogPostThumbnail");
-            return Ok(postThumbnails);
-        }
-
-        // Blog posts E.g Content model of type 'blogPost'
-        [HttpGet]
-        [Route("GetPosts")]
-        public async Task<IActionResult> GetPosts()
-        {
-            var posts = await _contentfulClient.GetEntriesByType<BlogPost>("blogPost");
-            return Ok(posts);
-        }
-
         [HttpGet]
         [Route("GetPostBySlug")]
         public async Task<IActionResult>GetPostBySlug(string slug)
         {
             var entryString = QueryBuilder<BlogPost>.New.ContentTypeIs("blogPost").FullTextSearch(slug);
             var post = await _contentfulClient.GetEntries<BlogPost>(entryString);
+
             return Ok(post);
         }
 
@@ -51,17 +34,10 @@ namespace portfolio_api.Controllers
         public async Task<IActionResult> GetContentThumbnails()
         {
             var postThumbnails = await _contentfulClient.GetEntriesByType<ContentThumbnail>("contentThumbnail");
+            
             return Ok(postThumbnails);
         }
 
-        //Entries E.g Content model of type 'thumbnail'
-        [HttpGet]
-        [Route("GetEntries")]
-        public async Task<IActionResult> GetEntries()
-        {
-            var records = await _contentfulClient.GetEntriesByType<Records>("thumbnail");
-            return Ok(records);
-        }
 
         [HttpGet]
         [Route("GetEntryBySlug")]

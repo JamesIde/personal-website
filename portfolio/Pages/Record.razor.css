@@ -32,6 +32,12 @@ body {
     color:white !important;
 }
 
+.main-hr {
+    height: 5px;
+    background-color: #ccc;
+    border: none;
+}
+
 #archive-title {
     font-family: Museo;
     font-size: 33.6px;

@@ -5,17 +5,16 @@ namespace portfolio.Services
 {
     public interface IContentfulQuery
     {
-        // Records
+        //Thumbnails
         public Task<IEnumerable<ContentThumbnail>> GetContentThumbnails();
 
+        // Records
         public Task<IEnumerable<Records>> GetEntryBySlug(string slug);
 
         //Assets
         public Task<IEnumerable<Asset>> GetAssetByTitle(string title);
 
         // Blog posts
-        public Task<IEnumerable<BlogPostThumbnail>> GetPostThumbnails();
-
         public Task<IEnumerable<BlogPost>> GetPostBySlug(string slug);
 
     }

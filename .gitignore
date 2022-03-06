@@ -366,3 +366,4 @@ FodyWeavers.xsd
 /portfolio-api-tests/ContentfulTests.cs
 /portfolio-api-tests/portfolio-api-tests.csproj
 /.idea/.idea.portfolio/.idea
+/api-test

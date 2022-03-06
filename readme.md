@@ -16,10 +16,12 @@ This negates having to store any keys in appsettings.json, or use environmental 
 - Harmen Hoek's [travel itinerary](https://harmenhoek.com/) for inspiration to create and design The Archive.
 - Max Mitchell's [video](https://www.youtube.com/watch?v=m6vxzu95sOI) on building his website with Gatsby and using Contentful. This was my first exposure to the world of content management systems in a well-layed out video with a tangible result at the end. 
 - Robert Linde's [blog](https://robertlinde.se/) for Contentful .NET SDK help, alongside the official [documentation](https://www.contentful.com/developers/docs/net/tutorials/using-net-cda-sdk/).
+
 ## Future Development
-- Investigate filtering assets/entries by metadata tags, rather than title.
 - Fix lighter pack gear list being imported and rendered in razor component. Seems to have trouble loading the script until forced reload. This will be added later.
 - Develop my own image lightbox instead of using [Ekko lightbox](http://ashleydw.github.io/lightbox/). Hopefully remove the white border around the images.
+- Implement search function based on metadata tags and carousel to accomodate for increasing number of records.
+- Write and publish records on non-hiking activities. E.g. Photography, Coding etc. 
 - Alter the styling to sooth my perfectionism. 
 
 ## Closing Thoughts
