@@ -3,6 +3,7 @@
 @using Contentful.Core.Models
 @using Microsoft.Extensions.Configuration;
 @using portfolio.Services
+@using portfolio.Services.IServices
 @using portfolio_models.Models;
 
 @inject IContentfulQuery contentfulService
@@ -36,18 +37,13 @@
                 <div class="container">
                     <h1 class="pt-4 mb-4" id="record-header">LATEST RECORDS</h1>
                     <div class="row align-items-center">
-                        @*Iterate over records*@
                         @foreach (var records in recordList)
                         {
-
                             <div class="col-md-4 ">
                                 <div class="card mb-4" id="main-card">
                                     <img class="card-img-top" src="@records.FeaturedAsset.File.Url?w=500">
-
                                     <div class="card-body text-center">
-                                        @*<h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>*@
                                         <h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>
-
                                         <p class="card-text text-white pl-3 pr-3 text-left" id="card-description-text">@records.Description</p>
                                         <button class="btn cursor-pointer" id="read-more" @onclick="()=>RedirectTo(records.Slug, records.MetadataTags)">
                                             READ
@@ -77,7 +73,6 @@
         try
         {
             Loading = true;
-
             recordList = await contentfulService.GetContentThumbnails();
             BannerImage = await contentfulService.GetAssetByTitle("walls-of-jerusalem-banner");
             Loading = false;
@@ -100,12 +95,12 @@
                 break;
             }
 
-        //If this was an else clause there would be an extra api call. Adding extra if statement solved it but feels hacky
+            //If this was an else clause there would be an extra api call. Adding extra if statement solved it but feels hacky
             if (metadataTag.Contains("recordPost"))
             {
                 NavigationManager.NavigateTo($"/the-archive/record/{recordSlug}");
                 break;
             }
         } // End foreach
-    } 
+    }
 }

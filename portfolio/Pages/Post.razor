@@ -4,7 +4,8 @@
 
 @using Microsoft.Extensions.Configuration;
 @using portfolio_models.Models;
-@using portfolio.Services
+@using portfolio.Services;
+@using portfolio.Services.IServices
 
 @inject IContentfulQuery contentfulService
 @inject NavigationManager NavigationManager
@@ -30,7 +31,6 @@
                                 <div class="image-grid">
                                     @foreach (var image in post.ImageGallery)
                                     {
-
                                         @if (image.File.Details.Image.Width.Equals(4032))
                                         {
                                             <a href="@image.File.Url" data-toggle="lightbox"

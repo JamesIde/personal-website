@@ -4,6 +4,7 @@ using portfolio;
 using portfolio_models.Models;
 using portfolio.Services;
 using Blazor.Analytics;
+using portfolio.Services.IServices;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 
@@ -15,7 +16,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 
 builder.Services.AddScoped<IContentfulQuery, ContentfulQuery>();
-
+builder.Services.AddScoped<IGraphQLQuery, GraphQLQuery>();
 
 
 //Base url points to our api for contentful queries

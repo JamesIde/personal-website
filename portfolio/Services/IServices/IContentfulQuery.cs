@@ -1,7 +1,7 @@
 ﻿using Contentful.Core.Models;
 using portfolio_models.Models;
 
-namespace portfolio.Services
+namespace portfolio.Services.IServices
 {
     public interface IContentfulQuery
     {

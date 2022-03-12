@@ -1,0 +1,91 @@
+﻿@page "/the-archive/about"
+@using portfolio.Services
+@using portfolio.Services.IServices
+@using portfolio_models.Models
+@using GraphQL.Client.Http;
+@using GraphQL.Client.Serializer.Newtonsoft;
+@inject IGraphQLQuery graphQLquery
+
+<body>
+    <div class="wrapper">
+        @if (Loading)
+        {
+            <div class="loader-black"></div>
+        }
+        else
+        {
+            <Navbar />
+            <section id="background-wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 mt-5 " id="main-div">
+                            <h4 class="mb-2">About</h4>
+                            <p>
+                                Hi. I am James - a developer from Adelaide, South Australia and welcome to my website.
+                            </p>
+                            <h4 class="mb-2">What is The Archive</h4>
+                            <p>
+                                I created this website as a place for me to synthesize information about things that interest me. The Archive is a collection of digital records documenting my experiences and interests in hiking, camping and photography. A set of information stored away for the future self to look back and reflect upon.
+                            </p>
+                            <p>
+                                I have big plans for this site, so stay tuned. For now, listed below are some of the projects I've worked on.
+                            </p>
+                            <p>
+                                I hope you find something of value in this corner of the internet.
+                            </p>
+                        </div>
+                        <div class="col-md-6 mt-5 mb-4" id="main-div">
+                                <img src="/images/about-picture.png" id="about-picture" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="container">
+                <div class="row">
+                </div>
+                <div class="col-md-12 mt-4 mb-4">
+                    <h4 id = "Software">Software</h4>
+                    <div class="table-responsive text-nowrap">
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Language</th>
+                                    <th>Created At</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pog in SoftwareRepos.User.PinnedItems.Nodes)
+                                {
+                                    <tr>
+                                        <td><a href="@pog.Url" target="_#" id="UrlLink">@pog.Name </a></td>
+                                        <td>@pog.PrimaryLanguage.name</td>
+                                        <td>@pog.CreatedAt.ToString("dd/MM/yyyy")</td>
+                                        <td>@pog.Description</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <Footer />
+        }
+    </div>
+
+</body>
+
+
+
+@code {
+    Repository SoftwareRepos = new Repository();
+    public bool Loading { get; set; } = false;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Loading = true;
+        SoftwareRepos = await graphQLquery.GetRepositories();
+        Loading = false;
+    }
+}

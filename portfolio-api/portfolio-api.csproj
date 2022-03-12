@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="contentful.csharp" Version="7.0.1" />
+    <PackageReference Include="GraphQL.Client" Version="4.0.2" />
+    <PackageReference Include="GraphQL.Client.Serializer.Newtonsoft" Version="4.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 

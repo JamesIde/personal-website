@@ -1,0 +1,61 @@
+﻿
+
+#about-picture {
+    width: 500px;
+    display:flex;
+    padding:0;
+    margin:0 !important;
+}
+
+@font-face {
+    font-family: Gravity-Regular;
+    src: url(../fonts/Gravity-Regular.otf);
+}
+
+#background-wrapper {
+    background-color: #191919;
+}
+
+@media only screen and (max-width: 1024px) {
+    #about-picture {
+        width: 450px;
+        margin: 0 !important;
+    }
+    #main-div {
+        padding-bottom: 25px;
+        margin: 0 !important;
+    }
+}
+@media only screen and (max-width: 995px) {
+    #about-picture {
+        width: 450px;
+        margin: 0 !important;
+    }
+}
+
+#main-div {
+    overflow:hidden;
+}
+
+#main-div > p {
+    font-size: 16px;
+    font-family: Gravity-Regular;
+    font-weight:100;
+    color:white;
+}
+
+h4 {
+    font-family: Gravity-Regular;
+    color:white;
+}
+
+#Software {
+    font-family: Gravity-Regular;
+    color: black;
+}
+
+#UrlLink{
+    color:black;
+}
+
+

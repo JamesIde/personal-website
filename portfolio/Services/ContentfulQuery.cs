@@ -2,6 +2,7 @@
 using Contentful.Core.Models;
 using Contentful.Core.Search;
 using Newtonsoft.Json;
+using portfolio.Services.IServices;
 using portfolio_models.Models;
 using System.Net.Http.Json;
 
