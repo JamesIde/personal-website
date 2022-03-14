@@ -37,6 +37,24 @@ body {
     font-size: 33.6px;
     font-weight: 700;
 }
+
+.fade-in {
+    animation: fadeIn ease 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
 /* Image Grid */
 .image-grid {
     --gap: 5px;

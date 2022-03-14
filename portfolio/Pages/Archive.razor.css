@@ -74,7 +74,32 @@ body {
     background-attachment: local;
     min-height: 76vh;
     min-width: 100%;
+    animation: fadeIn ease 2s;
 }
+
+#fadeIn-delay {
+    animation: fadeIn ease 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeIn-delay {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 @media only screen and (max-width: 1250px) {
     #landing-image {
         background-position-y: 0px;
