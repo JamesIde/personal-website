@@ -15,6 +15,9 @@
     <!--<link rel="stylesheet" href="css/style.css" />-->
     <link href="portfolio.styles.css" rel="stylesheet">
 
+    <!--SplideImage-->
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/css/splide.min.css" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +38,7 @@
 
 <body>
     <div id="app">
-        <div class="loader-black"></div>
+        <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     </div>
 
     <script src="_framework/blazor.webassembly.js"></script>
@@ -53,12 +56,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"
             integrity="sha512-Y2IiVZeaBwXG1wSV7f13plqlmFOx8MdjuHyYFVoYzhyRr3nH/NMDjTBSswijzADdNzMyWNetbLMfOpIPl6Cv9g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
     <script>
         $(document).on('click', '[data-toggle="lightbox"]', function (event) {
             event.preventDefault();
             $(this).ekkoLightbox();
         });
     </script>
+    <script src="https://cdn.lr-in.com/LogRocket.min.js" crossorigin="anonymous"></script>
+    <script>window.LogRocket && window.LogRocket.init('nmsdkw/james');</script>
 </body>
 </html>

@@ -14,7 +14,7 @@
 <body>
     @if (Loading)
     {
-        <div class="loader-black"></div>
+       <div class="lds-grid"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
     }
     else
     {
@@ -34,35 +34,34 @@
                 </section>
             }
             <section id="records">
-                <div class="container" id = "fadeIn-delay">
-                    <h1 class="pt-4 mb-4" id="record-header">LATEST RECORDS</h1>
-                    <div class="row align-items-center">
-                        @foreach (var records in recordList)
-                        {
-                            <div class="col-md-4 ">
-                                <div class="card mb-4" id="main-card">
-                                    <img class="card-img-top" src="@records.FeaturedAsset.File.Url?w=500">
-                                    <div class="card-body text-center">
-                                        <h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>
-                                        <p class="card-text text-white pl-3 pr-3 text-left" id="card-description-text">@records.Description</p>
-                                        <button class="btn cursor-pointer" id="read-more" @onclick="()=>RedirectTo(records.Slug, records.MetadataTags)">
-                                            READ
-                                            MORE
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
+                <div class="container" id = "">
+                <h1 class="pt-4 mb-4" id="record-header">LATEST RECORDS</h1>
+                <div class="row align-items-center">
+                @foreach (var records in recordList)
+                {
+                <div class="col-md-4 ">
+                <div class="card mb-4" id="main-card">
+                <img class="card-img-top" src="@records.FeaturedAsset.File.Url?w=500">
+                <div class="card-body text-center">
+                <h5 class="card-title text-center text-uppercase" id="card-title">@records.Title</h5>
+                <p class="card-text text-white pl-3 pr-3 text-left" id="card-description-text">@records.Description</p>
+                <button class="btn cursor-pointer" id="read-more" @onclick="()=>RedirectTo(records.Slug, records.MetadataTags)">
+                READ
+                MORE
+                </button>
                 </div>
-            </section>
+                </div>
+                </div>  
+                }
+                </div>
+                </div>
+                </section>
             <Footer />
         </div>
     }
 </body>
 
 @code {
-    //public IEnumerable<Records> recordList = new List<Records>();
     public IEnumerable<Asset> BannerImage = new List<Asset>();
     public IEnumerable<ContentThumbnail> recordList = new List<ContentThumbnail>();
 

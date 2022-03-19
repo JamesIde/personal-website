@@ -74,7 +74,7 @@ body {
     background-attachment: local;
     min-height: 76vh;
     min-width: 100%;
-    animation: fadeIn ease 2s;
+    
 }
 
 #fadeIn-delay {
